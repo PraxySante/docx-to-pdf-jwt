@@ -35,6 +35,8 @@ class PdfController(
         @RequestHeader("Authorization") authorizationHeader: String
     ): ResponseEntity<ByteArray> {
         val token = authorizationHeader.replace("Bearer ", "")
+        
+        // The verifyToken method now automatically determines the algorithm to use
         val verificationResult = verifyJWT.verifyToken(token)
         
         if (!verificationResult.valid) {
