@@ -4,7 +4,7 @@ services:
     container_name: docxtopdf
     build: .
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     volumes:
       - ./fonts:/usr/share/fonts/custom
     environment:
@@ -15,14 +15,10 @@ services:
       management.endpoint.health.probes.enabled: "true"
       server.tomcat.connection-timeout: "30"
 
-      auth.provider: "https://superauth.provider.com"
+      auth.provider: ""
       auth.enable: "true"
       auth.algo: "RS256"
-      auth.secret: "supersecret"
+      auth.secret: ""
       auth.publicKey: |-
-        -----BEGIN CERTIFICATE-----\
-        SUPER\
-        LONG\
-        CERTIFICATE\
-        STRING\
+        -----BEGIN CERTIFICATE-----
         -----END CERTIFICATE-----
